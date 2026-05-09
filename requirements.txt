@@ -1,7 +1,7 @@
-fastapi==0.110.0
-uvicorn==0.29.0
-pydantic==2.6.4
-groq==0.4.2
-openai==1.14.3
-instructor==1.1.0
-python-dotenv==1.0.1
+fastapi==0.136.1
+groq==1.2.0
+instructor==1.15.1
+openai==2.34.0
+pydantic==2.13.3
+python-dotenv==1.2.2
+uvicorn==0.46.0
