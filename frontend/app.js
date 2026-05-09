@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkHealth = async () => {
         updateDiag('frontend', 'operational', 'Running (Browser)');
         try {
-            const res = await fetch('http://127.0.0.1:8080/health');
+            const res = await fetch('https://ai-software-generation-compiler.onrender.com/health');
             if (res.ok) {
                 const data = await res.json();
                 updateDiag('backend', 'operational', 'Connected (8080)');
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000);
 
         try {
-            const response = await fetch('http://127.0.0.1:8080/generate', {
+            const response = await fetch('https://ai-software-generation-compiler.onrender.com/generate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ prompt })
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadFileTree = async (projectDir) => {
         try {
-            const res = await fetch(`http://127.0.0.1:8080/project/${projectDir}/files`);
+            const res = await fetch(`https://ai-software-generation-compiler.onrender.com/project/${projectDir}/files`);
             if (!res.ok) throw new Error("Could not load files");
             const data = await res.json();
             
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadFileContent = async (projectDir, file) => {
         activeFilename.textContent = `Loading ${file}...`;
         try {
-            const res = await fetch(`http://127.0.0.1:8080/project/${projectDir}/file/${encodeURIComponent(file)}`);
+            const res = await fetch(`https://ai-software-generation-compiler.onrender.com/project/${projectDir}/file/${encodeURIComponent(file)}`);
             if (!res.ok) throw new Error("Failed to load file content");
             const data = await res.json();
             fileCode.textContent = data.content;
@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchEvalMetrics = async () => {
         try {
             evalGrid.innerHTML = '<div class="tree-placeholder">Loading evaluation data...</div>';
-            const res = await fetch('http://127.0.0.1:8080/evaluate/metrics');
+            const res = await fetch('https://ai-software-generation-compiler.onrender.com/evaluate/metrics');
             const data = await res.json();
             
             if (data.status === 'no_data') {
