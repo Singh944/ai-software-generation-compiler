@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Compiler for Software Generation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="layout-container">
+        <!-- Sidebar: Diagnostics & System Health -->
+        <aside class="diagnostics-panel">
+            <h2><i data-lucide="activity"></i> System Diagnostics</h2>
+            
+            <div class="status-list">
+                <div class="status-item">
+                    <span class="status-indicator" id="diag-frontend"></span>
+                    <div class="status-label">
+                        <strong>Frontend Runtime</strong>
+                        <span id="diag-frontend-msg">Checking...</span>
+                    </div>
+                </div>
+                
+                <div class="status-item">
+                    <span class="status-indicator" id="diag-backend"></span>
+                    <div class="status-label">
+                        <strong>Backend API</strong>
+                        <span id="diag-backend-msg">Checking...</span>
+                    </div>
+                </div>
+                
+                <div class="status-item">
+                    <span class="status-indicator" id="diag-llm"></span>
+                    <div class="status-label">
+                        <strong>LLM Provider</strong>
+                        <span id="diag-llm-msg">Checking...</span>
+                    </div>
+                </div>
+                
+                <div class="status-item">
+                    <span class="status-indicator" id="diag-engine"></span>
+                    <div class="status-label">
+                        <strong>Compiler Engine</strong>
+                        <span id="diag-engine-msg">Checking...</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="missing-env-box" class="missing-env-box hidden">
+                <h4><i data-lucide="alert-triangle"></i> Missing Variables</h4>
+                <ul id="missing-env-list"></ul>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <header>
+                <h1><i data-lucide="cpu"></i> Software Generation Compiler</h1>
+                <p>Deterministic runtime compilation from natural language to strict, executable app configuration.</p>
+            </header>
+
+            <section class="input-section">
+                <div class="demo-prompts">
+                    <span>Demo Mode:</span>
+                    <button class="demo-tag">CRM SaaS</button>
+                    <button class="demo-tag">Hospital Management</button>
+                    <button class="demo-tag">Multi-tenant Analytics Platform</button>
+                    <button class="demo-tag">E-commerce Marketplace</button>
+                </div>
+                <div class="input-wrapper">
+                    <textarea id="prompt-input" placeholder="e.g., Build a CRM with login, contacts, dashboard, role-based access..."></textarea>
+                    <button id="generate-btn" class="primary-btn">
+                        <i data-lucide="play"></i> Compile
+                    </button>
+                </div>
+            </section>
+
+            <!-- Compiler Pipeline Visualizer -->
+            <section id="status-section" class="status-section hidden">
+                <h3>Compilation Pipeline</h3>
+                <div class="pipeline-visualizer">
+                    <div class="stage" id="stage-0"><div class="spinner"></div><span>1. Intent Extraction</span><span class="stage-time"></span></div>
+                    <div class="stage-line"></div>
+                    <div class="stage" id="stage-1"><div class="spinner"></div><span>2. System Design</span><span class="stage-time"></span></div>
+                    <div class="stage-line"></div>
+                    <div class="stage" id="stage-2"><div class="spinner"></div><span>3. Schema Generation</span><span class="stage-time"></span></div>
+                    <div class="stage-line"></div>
+                    <div class="stage" id="stage-3"><div class="spinner"></div><span>4. Cross-Layer Consistency</span><span class="stage-time"></span></div>
+                    <div class="stage-line"></div>
+                    <div class="stage" id="stage-4"><div class="spinner"></div><span>5. Runtime Scaffolding</span><span class="stage-time"></span></div>
+                    <div class="stage-line"></div>
+                    <div class="stage" id="stage-5"><div class="spinner"></div><span>6. Executable Output</span><span class="stage-time"></span></div>
+                </div>
+                
+                <div id="validation-failure-alert" class="failure-alert hidden">
+                    <h4><i data-lucide="shield-alert"></i> Validation Failure Detected</h4>
+                    <div class="failure-details">
+                        <p><strong>Failing Layer:</strong> <span id="fail-layer">-</span></p>
+                        <p><strong>Reason:</strong> <span id="fail-reason">-</span></p>
+                        <p><strong>Action Taken:</strong> <span id="fail-action">-</span></p>
+                        <p><strong>Status:</strong> <span id="fail-status" class="status-repaired">Repaired Successfully</span></p>
+                    </div>
+                </div>
+                
+                <div id="error-message" class="error-message hidden"></div>
+            </section>
+
+            <!-- Compilation Output -->
+            <section id="results-section" class="results-section hidden">
+                <div id="compilation-summary-container">
+                    <!-- Populated dynamically upon success -->
+                </div>
+
+                <div class="metrics-grid" id="metrics-grid">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" data-target="files-tab"><i data-lucide="folder-tree"></i> Project Files</button>
+                    <button class="tab-btn" data-target="ui-tab">UI Schema</button>
+                    <button class="tab-btn" data-target="api-tab">API Schema</button>
+                    <button class="tab-btn" data-target="db-tab">DB Schema</button>
+                    <button class="tab-btn" data-target="auth-tab">Auth Rules</button>
+                    <button class="tab-btn" data-target="report-tab">Compile Report</button>
+                    <button class="tab-btn" data-target="eval-tab"><i data-lucide="bar-chart-2"></i> Eval Metrics</button>
+                </div>
+                
+                <!-- Artifact Tabs -->
+                <div class="tab-content active" id="files-tab">
+                    <div class="explorer-container">
+                        <div class="tree-view" id="file-tree">
+                            <div class="tree-placeholder">Awaiting compilation artifacts...</div>
+                        </div>
+                        <div class="code-viewer">
+                            <div class="code-header">
+                                <span id="active-filename">Awaiting file selection...</span>
+                                <span class="read-only-badge"><i data-lucide="lock"></i> Read-only Runtime Preview</span>
+                            </div>
+                            <pre><code id="file-code">// No file selected</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="ui-tab"><pre><code id="ui-code"></code></pre></div>
+                <div class="tab-content" id="api-tab"><pre><code id="api-code"></code></pre></div>
+                <div class="tab-content" id="db-tab"><pre><code id="db-code"></code></pre></div>
+                <div class="tab-content" id="auth-tab"><pre><code id="auth-code"></code></pre></div>
+                <div class="tab-content" id="report-tab"><pre><code id="report-code"></code></pre></div>
+                
+                <!-- Eval Metrics Tab -->
+                <div class="tab-content" id="eval-tab">
+                    <div class="eval-dashboard">
+                        <div class="eval-header">
+                            <h3><i data-lucide="server"></i> Infrastructure Observability Dashboard</h3>
+                            <button id="refresh-eval-btn" class="secondary-btn"><i data-lucide="refresh-cw"></i> Refresh</button>
+                        </div>
+                        <div class="eval-grid" id="eval-grid">
+                            <div class="tree-placeholder">Fetching observability metrics...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Environments
+.env
+venv/
+env/
+.venv/
+
+# Cache
+__pycache__/
+.compiler_cache/
+evaluation_cache/
+*.pyc
+.DS_Store
+
+# Output
+generated_apps/
+evaluation_results.json
+compile_report.json

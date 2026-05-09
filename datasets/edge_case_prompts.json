@@ -1,0 +1,52 @@
+[
+    {
+        "id": "edge-1",
+        "type": "vague",
+        "prompt": "Make an app."
+    },
+    {
+        "id": "edge-2",
+        "type": "vague",
+        "prompt": "I need a website for my business."
+    },
+    {
+        "id": "edge-3",
+        "type": "impossible",
+        "prompt": "Build a quantum AI blockchain app that runs instantly without servers."
+    },
+    {
+        "id": "edge-4",
+        "type": "conflicting",
+        "prompt": "Create a CRM where the sales team can delete customers but the sales team has read-only access to all data."
+    },
+    {
+        "id": "edge-5",
+        "type": "underspecified_auth",
+        "prompt": "Build an app for managers and employees. Anyone can edit anything."
+    },
+    {
+        "id": "edge-6",
+        "type": "vague",
+        "prompt": "I want an Uber clone."
+    },
+    {
+        "id": "edge-7",
+        "type": "underspecified_system",
+        "prompt": "Build a database that stores a lot of unstructured data with a UI on top."
+    },
+    {
+        "id": "edge-8",
+        "type": "conflicting",
+        "prompt": "Create a secure banking app where no passwords are required and everyone shares one account."
+    },
+    {
+        "id": "edge-9",
+        "type": "impossible",
+        "prompt": "Build an app that automatically reads the user's mind and predicts their next search."
+    },
+    {
+        "id": "edge-10",
+        "type": "vague",
+        "prompt": "Create a platform to sell things online."
+    }
+]

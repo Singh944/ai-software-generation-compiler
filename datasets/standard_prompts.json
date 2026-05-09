@@ -1,0 +1,52 @@
+[
+    {
+        "id": "std-1",
+        "type": "standard",
+        "prompt": "Build a CRM with login, contacts, dashboard, role-based access, and premium plan with payments. Admins can see analytics."
+    },
+    {
+        "id": "std-2",
+        "type": "standard",
+        "prompt": "Create an E-commerce marketplace with user registration, shopping cart, order history, and product reviews. Admin can manage inventory."
+    },
+    {
+        "id": "std-3",
+        "type": "standard",
+        "prompt": "Develop a hospital management system. Doctors can manage appointments and patient records. Patients can view prescriptions. Admins handle billing."
+    },
+    {
+        "id": "std-4",
+        "type": "standard",
+        "prompt": "Build an HR portal where employees can request time off, managers can approve requests, and HR admins can run payroll reports."
+    },
+    {
+        "id": "std-5",
+        "type": "standard",
+        "prompt": "Create a real estate platform. Agents can list properties, buyers can save favorites and contact agents, and admins oversee all accounts."
+    },
+    {
+        "id": "std-6",
+        "type": "standard",
+        "prompt": "Build a learning management system (LMS). Instructors can upload courses and grade assignments. Students can track progress and submit work."
+    },
+    {
+        "id": "std-7",
+        "type": "standard",
+        "prompt": "Develop a support ticketing system. Customers create tickets, support agents claim and resolve them, and managers see performance metrics."
+    },
+    {
+        "id": "std-8",
+        "type": "standard",
+        "prompt": "Create a social network for pets. Users can create profiles for pets, post photos, comment, and like. Admins moderate content."
+    },
+    {
+        "id": "std-9",
+        "type": "standard",
+        "prompt": "Build a project management tool. Project managers create tasks, assignees update status, and stakeholders view read-only progress dashboards."
+    },
+    {
+        "id": "std-10",
+        "type": "standard",
+        "prompt": "Develop a food delivery app. Restaurants manage menus, customers place orders and track delivery, and delivery drivers update order status."
+    }
+]
